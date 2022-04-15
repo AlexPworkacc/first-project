@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'first-project';
+  name = ' a';
+  nameTeacher = "Artur";
+
+  todos = ['Learn angular', 'LearnC#', 'LearnGit', 'Go to gym', 'Make a breakfast'];
+
+  condition: boolean = true;
+
+  toggle() {
+    this.condition = !this.condition;
+  }
+  onKeyUp(event:any) {
+    this.name = event.target.value;
+    return this.name[0].toUpperCase;
+  }
 }
