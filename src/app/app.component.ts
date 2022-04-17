@@ -9,9 +9,6 @@ export class AppComponent {
   name = ' ';
   nameTeacher = "Artur";
 
-  todos = ['Learn angular', 'LearnC#', 'LearnGit', 'Go to gym', 'Make a breakfast'];
-  case = '';
-
   condition: boolean = true;
 
   toggle() {
@@ -19,12 +16,5 @@ export class AppComponent {
   }
   onKeyUp(event:any) {
     this.name = event.target.value;
-  }
-  addCase() {
-    this.todos.push(this.case);
-    this.case = '';
-  }
-  deliteCase() {
-    this.todos.splice(this.todos.length - 1, 1);
   }
 }

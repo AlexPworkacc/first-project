@@ -5,11 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  constructor() { }
+  todos = ['Learn angular', 'LearnC#', 'LearnGit', 'Go to gym', 'Make a breakfast'];
+  case = '';
 
-  ngOnInit(): void {
+  addCase() {
+    this.todos.push(this.case);
+    this.case = '';
   }
-
+  deleteCase() {
+    this.todos.splice(this.todos.length - 1, 1);
+  }
 }

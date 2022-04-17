@@ -2,28 +2,24 @@
   <div class="row">
     <div class="col">
       <div class="header">
-        <input type="text" class="form-control" placeholder="Your name" (keyup.enter)="onKeyUp($event)">
-        <input type="text" class="form-control" [(ngModel)]="nameTeacher">
-        <h1>Hello 
-          <span *ngIf="condition">{{name}}</span>
-          <span *ngIf="!condition">{{nameTeacher}}</span>
+        <div class="header_input">
+          <input required name="name" type="text" class="form-control" (keyup.enter)="onKeyUp($event)">
+          <label for="name" class="header_label">Your name</label>
+        </div>
+        <div class="header_input">
+          <input name="teacher" type="text" class="form-control" [(ngModel)]="nameTeacher">
+          <label for="teacher" class="header_label">Teacher's name</label>
+        </div>
+        
+        <h1 class="header_title">Hello 
+          <span *ngIf="condition">{{ name | titlecase }}</span>
+          <span *ngIf="!condition">{{ nameTeacher | titlecase }}</span>
         </h1>
       </div>
       <button (click)="toggle()" class="btn btn-outline-secondary">Поздароваться с учителем</button>
 
       
-      <div class="listSection">
-        <input type="text" class="form-control" [(ngModel)]="case">
-        <div class="buttons">
-          <button type="button" class="btn btn-dark" (click)="addCase()">Add case</button>
-          <button type="button" class="btn btn-dark" (click)="deliteCase()">Delite case</button>
-        </div>
-        
-        <h2>Список дел:</h2>
-        <ol id="list1" class="list">
-          <li *ngFor="let item of todos">{{item}}</li>
-        </ol>
-      </div>
+      <app-list></app-list>
     </div>
   </div>
 </div>
