@@ -13,6 +13,12 @@
 
       
       <div class="listSection">
+        <input type="text" class="form-control" [(ngModel)]="case">
+        <div class="buttons">
+          <button type="button" class="btn btn-dark" (click)="addCase()">Add case</button>
+          <button type="button" class="btn btn-dark" (click)="deliteCase()">Delite case</button>
+        </div>
+        
         <h2>Список дел:</h2>
         <ol id="list1" class="list">
           <li *ngFor="let item of todos">{{item}}</li>

@@ -14,7 +14,16 @@
     border: none;
     border-radius: 5px;
 }
-
-#list1 {
-    display: block;
+.buttons {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listSection {
+    padding: 10px;
+    border: 1px dotted rgb(108, 117, 125);
+}
+input {
+    margin-bottom: 10px;
 }

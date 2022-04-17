@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  name = ' a';
+  name = ' ';
   nameTeacher = "Artur";
 
   todos = ['Learn angular', 'LearnC#', 'LearnGit', 'Go to gym', 'Make a breakfast'];
+  case = '';
 
   condition: boolean = true;
 
@@ -18,6 +19,12 @@ export class AppComponent {
   }
   onKeyUp(event:any) {
     this.name = event.target.value;
-    return this.name[0].toUpperCase;
+  }
+  addCase() {
+    this.todos.push(this.case);
+    this.case = '';
+  }
+  deliteCase() {
+    this.todos.splice(this.todos.length - 1, 1);
   }
 }
