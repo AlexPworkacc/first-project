@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-6">
+        <div class="form">
+            <h2 class="form_title">Template-Driven</h2>
+            <div class="form-group">
+                <label for="name">Your name:</label>
+                <input type="text" name="name" class="form-control" [(ngModel)]="user.name" #name="ngModel" required>
+                <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+                    Не указано имя
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Your telephon number:</label>
+                <input type="number" name="phone" class="form-control" [(ngModel)]="user.phone" #phone="ngModel" required pattern="[0-9]{10}">
+                <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
+                    Не указан телефон
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status">Your status:</label>
+                <select class="form-select" name="status">
+                    <option *ngFor="let stat of roles" [value]="stat">
+                        {{stat}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button [disabled]="name.invalid || phone.invalid"  class="btn btn-dark" (click)="addUser()">Add</button>
+            </div>
+        
+            <div class="user_list">
+                <h3 class="user_list_title">User's list</h3>
+                <ol class="list">
+                    <li class="item" *ngFor="let u of users">
+                        {{u.name}} is {{u.status}}<hr>
+                        Phone number: {{u.phone}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-6">
+        <div class="form">
+            <h2 class="form_title">Reactive Forms</h2>
+            <form [formGroup]="personForm" novalidate (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label>Имя</label>
+                    <input class="form-control" name="name" formControlName="personName" />
+                    
+                    <div class="alert alert-danger"
+                        *ngIf="!personForm.controls['personName'].valid && personForm.controls['personName'].touched">
+                        Не указано имя
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" name="email" formControlName="personEmail" />
+                    
+                    <div class="alert alert-danger"
+                        *ngIf="!personForm.controls['personEmail'].valid && personForm.controls['personEmail'].touched">
+                        Некорректный email
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Телефон</label>
+                            <input class="form-control" name="phone" formControlName="personPhone" />
+                            <div class="alert alert-danger"
+                                *ngIf="!personForm.controls['personPhone'].valid && personForm.controls['personPhone'].touched">
+                                Некорректный номер телефона
+                            </div>
+                    <button class="btn btn-dark" [disabled]="personForm.valid">
+                        Отправить
+                    </button>
+                </div>
+            </form>`
+        </div>
+    </div>
+</div>

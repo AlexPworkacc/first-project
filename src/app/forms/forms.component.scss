@@ -1,0 +1,27 @@
+input.ng-touched.ng-invalid {border:solid #dc3545 2px;}
+input.ng-touched.ng-valid {border:solid #198754 2px;}
+
+
+.form {
+    margin-top: 10px;
+    &_title {
+        display: block;
+        text-align: center;
+    }
+}
+
+.btn {
+    margin: 10px;
+}
+
+.list {
+    padding: 10;
+}
+.item {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 5px;
+}
+hr {
+    margin: 0;
+}

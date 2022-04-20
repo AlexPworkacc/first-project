@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServise } from '../data.servise';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  providers: [DataServise]
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 
-  todos = ['Learn angular', 'LearnC#', 'LearnGit', 'Go to gym', 'Make a breakfast'];
+  todos: string[] = [];
   case = '';
+  constructor(private dataServise: DataServise){}
 
   addCase() {
-    this.todos.push(this.case);
+    this.dataServise.addData(this.case);
     this.case = '';
   }
   deleteCase() {
-    this.todos.splice(this.todos.length - 1, 1);
+    this.dataServise.deleteData();
   }
+  ngOnInit() {
+    this.todos = this.dataServise.getData();
+  }
+
 }
